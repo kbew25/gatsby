@@ -2,7 +2,6 @@ import React from "react";
 import { Card, Heading, Box, Image, Grid } from "theme-ui";
 
 const Recipe = ({ props }) => {
-  console.log(props);
   return (
     <Card mb={4}>
       <Grid gap={4} columns={'2fr 1fr'}>

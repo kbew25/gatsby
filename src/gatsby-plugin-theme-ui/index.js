@@ -141,7 +141,6 @@ const theme = {
   text: {
     heading: {
       mb: "1.5rem",
-      color: 'primary'
     },
     large: {
       fontSize: 5

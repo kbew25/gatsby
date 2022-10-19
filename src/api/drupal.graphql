@@ -1,0 +1,36 @@
+query allArticles {
+  allNodeArticle {
+    edges {
+      node {
+        drupal_id
+        nid: drupal_internal__nid
+        title
+        field_image {
+          drupal_internal__target_id
+        }
+        relationships {
+          field_image {
+            relationships {
+              field_media_image {
+                uri {
+                  url
+                }
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(aspectRatio: 1.75, width: 640)
+                  }
+                }
+              }
+            }
+          }
+        }
+        body {
+          processed
+        }
+        path {
+          alias
+        }
+      }
+    }
+  }
+}

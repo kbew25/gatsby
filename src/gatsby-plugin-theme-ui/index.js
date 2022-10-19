@@ -141,6 +141,16 @@ const theme = {
   text: {
     heading: {
       mb: "1.5rem",
+      fontFamily: "heading",
+      lineHeight: "heading",
+      color: "text",
+      a: {
+        color: "inherit",
+        textDecoration: "none",
+        '&:hover': {
+          textDecoration: "underline",
+        }
+      }
     },
     large: {
       fontSize: 5
@@ -151,54 +161,6 @@ const theme = {
       "fontFamily": "body",
       "lineHeight": "body",
       "fontWeight": "body"
-    },
-    h1: {
-      "color": "text",
-      "fontFamily": "heading",
-      "lineHeight": "heading",
-      "fontWeight": "heading",
-      "fontSize": 5,
-    },
-    h2: {
-      "color": "text",
-      "fontFamily": "heading",
-      "lineHeight": "heading",
-      "fontWeight": "heading",
-      "fontSize": 4
-    },
-    h3: {
-      "color": "text",
-      "fontFamily": "heading",
-      "lineHeight": "heading",
-      "fontWeight": "heading",
-      "fontSize": 3
-    },
-    h4: {
-      "color": "text",
-      "fontFamily": "heading",
-      "lineHeight": "heading",
-      "fontWeight": "heading",
-      "fontSize": 2
-    },
-    h5: {
-      "color": "text",
-      "fontFamily": "heading",
-      "lineHeight": "heading",
-      "fontWeight": "heading",
-      "fontSize": 1
-    },
-    h6: {
-      "color": "text",
-      "fontFamily": "heading",
-      "lineHeight": "heading",
-      "fontWeight": "heading",
-      "fontSize": 0
-    },
-    p: {
-      "color": "text",
-      "fontFamily": "body",
-      "fontWeight": "body",
-      "lineHeight": "body"
     },
     a: {
       "color": "primary"

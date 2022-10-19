@@ -2,6 +2,8 @@ import { action } from "@storybook/addon-actions"
 import addons from '@storybook/addons';
 import { DecoratorFn } from '@storybook/react';
 import React, { useEffect } from 'react';
+import "@fontsource/montserrat/400.css"
+import "@fontsource/montserrat/300.css"
 import { ThemeProvider, useColorMode  } from 'theme-ui';
 import theme from '../src/gatsby-plugin-theme-ui/index';
 

@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import { within, fireEvent, screen } from '@storybook/testing-library';
 
 import Header from "../components/header"
 
@@ -13,3 +14,6 @@ export const Default = Template.bind({})
 Default.args = {
   siteTitle: "Something",
 }
+Default.play = async ({ canvasElement }) => {
+  await fireEvent.click(screen.getByRole('button'));
+};

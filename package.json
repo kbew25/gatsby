@@ -31,8 +31,10 @@
     "@storybook/addon-interactions": "^6.5.12",
     "@storybook/addon-links": "^6.5.12",
     "@storybook/builder-webpack5": "^6.5.12",
+    "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/react": "^6.5.12",
+    "@storybook/test-runner": "^0.9.0",
     "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.2.5",
     "chromatic": "^6.10.2",
@@ -52,7 +54,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test-storybook": "test-storybook"
   },
   "repository": {
     "type": "git",

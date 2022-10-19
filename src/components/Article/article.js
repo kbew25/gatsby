@@ -11,7 +11,7 @@ const Article = ({ article }) => {
   return (
     <Card key={article.nid} mb={4} variant={ article }>
       { image ? <GatsbyImage image={image} alt="meh" width={452} height={247} aspectRatio={2/1} /> : <Placeholder fallback={placeholderImg} height={213}   /> }
-      <Box p={2}>
+      <Box p={4} bg="background">
         <Heading as="h2"><Link to={`/node/` + article.nid} as={GatsbyLink}>{ article.title }</Link></Heading>
         <Box dangerouslySetInnerHTML={{__html: article.body.processed}}></Box>
       </Box>

@@ -1,7 +1,7 @@
 import React from "react";
 import { within, fireEvent, screen } from '@storybook/testing-library';
 
-import Header from "../components/header"
+import Header from "./Header"
 
 export default {
   component: Header,

@@ -2,12 +2,14 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link as GatsbyLink } from "gatsby"
 import { Box, Link, Button, useColorMode, Flex, Image } from "theme-ui";
-import logo from "../images/logo.svg";
+import logo from "../../images/logo.svg";
 
 
 const menuLinks = [
   { text: "Recipes", url: "/recipes" },
-  { text: "Articles", url: "/articles" },
+  { text: "Recipes", url: "/recipes" },
+  { text: "Recipes", url: "/recipes" },
+  { text: "Recipes", url: "/recipes" },
 ];
 
 const Header = ({ siteTitle }) => {
@@ -54,7 +56,7 @@ const Header = ({ siteTitle }) => {
           listStyle: 'none',
         }}>
         {menuLinks.map((link, i) => (
-          <li><Link to={link.url} as={GatsbyLink} p={2}>{link.text}</Link></li>
+          <li key={i}><Link to={link.url} as={GatsbyLink} p={2}>{link.text}</Link></li>
         ))}
         </Flex>
       </Box>

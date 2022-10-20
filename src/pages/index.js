@@ -1,25 +1,105 @@
-import * as React from "react"
+import * as React from "react";
 import Lottie from "lottie-react";
 import spookyAnimation from "../content/spooky-pumpkin.json";
 
-import { Box, Heading } from "theme-ui";
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import ArticlesPage from "./articles";
+import { Box, Heading, Grid, Container } from "theme-ui";
+import Layout from "../components/Layout";
+import Seo from "../components/seo";
+import { graphql } from "gatsby";
+import Teaser from "../components/Teaser/Teaser";
+import Section from "../components/Section";
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <Box>
-      <Heading as="h1" sx={{ textAlign: 'center' }}>
-        Welcome
-      </Heading>
-      <Box sx={{ width: '200px'}} mx="auto">
-        <Lottie animationData={spookyAnimation} />
+export const query = graphql`
+  query allArticles {
+    allNodeArticle(
+      sort: {fields: created, order: DESC}
+    ) {
+      edges {
+        node {
+          created(formatString: "MMMM DD Y")
+          drupal_id
+          nid: drupal_internal__nid
+          title
+          field_image {
+            drupal_internal__target_id
+          }
+          relationships {
+            field_image {
+              relationships {
+                field_media_image {
+                  uri {
+                    url
+                  }
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData(width: 440, height: 240)
+                    }
+                  }
+                }
+              }
+            }
+            field_category {
+              name
+            }
+          }
+          body {
+            processed
+          }
+          path {
+            alias
+          }
+          field_rating
+          field_type
+        }
+      }
+    }
+  }
+`;
+
+const IndexPage = ({data}) => {
+
+  const news = data.allNodeArticle.edges.filter(obj => {
+    return obj.node.field_type === 'news'
+  });
+
+  const reviews = data.allNodeArticle.edges.filter(obj => {
+    return obj.node.field_type === 'review'
+  });
+
+
+  return (
+    <Layout>
+      <Seo title="Home" />
+      <Box>
+        <Box sx={{ width: '200px'}} mx="auto">
+          <Lottie animationData={spookyAnimation} />
+        </Box>
       </Box>
-    </Box>
-  </Layout>
-)
+      <Section title="Latest news" bottom="0" bg="muted">
+        <Grid gap={2} columns={[1, 3, 3]}>
+          {news.map((article, i) => {
+            if (i < 3) {
+              return (
+                <Teaser key={i} article={ article.node } />
+              )
+            }
+          })}
+        </Grid>
+      </Section>
+      <Section title="Latest reviews" bottom="0">
+        <Grid gap={2} columns={[1, 3, 3]}>
+          {reviews.map((article, i) => {
+            if (i < 3) {
+              return (
+                <Teaser key={i} article={ article.node } />
+              )
+            }
+          })}
+        </Grid>
+      </Section>
+    </Layout>
+  )
+}
 
 /**
  * Head export to define metadata for the page

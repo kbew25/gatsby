@@ -92,6 +92,9 @@ const theme = {
     },
     article: {
       bg: 'background',
+      p: {
+        color: 'secondary',
+      }
     },
   },
   links: {
@@ -154,16 +157,26 @@ const theme = {
     },
     large: {
       fontSize: 5
+    },
+    pageTitle: {
+      textAlign: 'center'
     }
   },
   styles: {
     root: {
-      "fontFamily": "body",
-      "lineHeight": "body",
-      "fontWeight": "body"
+      fontFamily: 'body',
+      lineHeight: 'body',
+      fontWeight: 'body',
+      p: {
+        color: 'secondary',
+      },
+      img: {
+        "maxWidth": "100%",
+        display: 'block',
+      },
     },
     a: {
-      "color": "primary"
+      color: "primary"
     },
     pre: {
       "fontFamily": "monospace",
@@ -172,25 +185,22 @@ const theme = {
         "color": "inherit"
       }
     },
-    "code": {
+    code: {
       "fontFamily": "monospace",
       "fontSize": "inherit"
     },
-    "table": {
+    table: {
       "width": "100%",
       "borderCollapse": "separate",
       "borderSpacing": 0
     },
-    "th": {
+    th: {
       "textAlign": "left",
       "borderBottomStyle": "solid"
     },
-    "td": {
+    td: {
       "textAlign": "left",
       "borderBottomStyle": "solid"
-    },
-    "img": {
-      "maxWidth": "100%"
     },
     hr: {
       borderColor: 'lightGray'

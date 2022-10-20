@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Box, Card, Heading } from "theme-ui";
-import Layout from "../components/layout";
+import { Box, Card, Container, Heading } from "theme-ui";
+import Layout from "../components/Layout";
 
 export const query = graphql`
   query articlePage($drupal_id: String!) {
@@ -20,10 +20,12 @@ const ArticlePage = ({data}) => {
 
   return (
     <Layout>
-      <Card key={data.nodeArticle.nid} mb={4}>
-        <Heading as="h2">{ data.nodeArticle.title }</Heading>
-        <Box dangerouslySetInnerHTML={{__html: data.nodeArticle.body.processed}}></Box>
-      </Card>
+      <Container>
+        <Box key={data.nodeArticle.nid} mb={4} as="article">
+          <Heading as="h1" variant="pageTitle">{ data.nodeArticle.title }</Heading>
+          <Box dangerouslySetInnerHTML={{__html: data.nodeArticle.body.processed}}></Box>
+        </Box>
+      </Container>
     </Layout>
   )
 }

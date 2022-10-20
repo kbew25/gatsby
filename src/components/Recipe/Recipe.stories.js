@@ -1,6 +1,6 @@
 import React from "react"
 
-import Recipe from "../components/recipe"
+import Recipe from "./Recipe"
 
 export default {
   component: Recipe,

@@ -1,0 +1,37 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+import theme from '../gatsby-plugin-theme-ui/index';
+
+<Meta title="Colors" />
+
+## Light mode (default)
+
+<ColorPalette>
+  {Object.entries(theme.colors).map(([k, v]) => {
+    if (
+      typeof v === 'string' &&
+      (v.match(/^#/) || v.match(/^rgb/) || k.match(/color/i))
+    ) {
+      return <ColorItem key={k} title={k} colors={{ [k]: v }} />;
+    }
+  })}
+</ColorPalette>
+
+## Dark mode
+
+<div style={{
+  backgroundColor: '#f8f8f8',
+  color: '#fff',
+  padding: '20px'
+}}>
+  <ColorPalette>
+    {Object.entries(theme.colors.modes.dark).map(([k, v]) => {
+      if (
+        typeof v === 'string' &&
+        (v.match(/^#/) || v.match(/^rgb/) || k.match(/color/i))
+      ) {
+        return <ColorItem key={k} title={k} colors={{ [k]: v }} />;
+      }
+    })}
+  </ColorPalette>
+</div>
+

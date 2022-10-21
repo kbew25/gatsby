@@ -2,7 +2,7 @@ import * as React from "react";
 import Lottie from "lottie-react";
 import spookyAnimation from "../content/spooky-pumpkin.json";
 
-import { Box, Heading, Grid, Container } from "theme-ui";
+import { Box, Grid } from "theme-ui";
 import Layout from "../components/Layout";
 import Seo from "../components/seo";
 import { graphql } from "gatsby";
@@ -32,7 +32,7 @@ export const query = graphql`
                   }
                   localFile {
                     childImageSharp {
-                      gatsbyImageData(width: 440, height: 240)
+                      gatsbyImageData(width: 550, height: 300)
                     }
                   }
                 }
@@ -83,17 +83,27 @@ const IndexPage = ({data}) => {
                 <Teaser key={i} article={ article.node } />
               )
             }
+            return null;
           })}
         </Grid>
       </Section>
-      <Section title="Latest reviews" bottom="0">
-        <Grid gap={2} columns={[1, 3, 3]}>
+      <Section title="Latest reviews" bottom="0" top={6}>
+        <Grid gap={2} columns={[1, 2, '2fr 1fr 1fr']}>
           {reviews.map((article, i) => {
-            if (i < 3) {
+            if (i === 0) {
+              return (
+                <Teaser key={i} article={ article.node } sx={{
+                  gridRow: [null, null, '1 / 3'],
+                }} large />
+              )
+            }
+            if (i > 0 && i < 5) {
+              article.node.body = null;
               return (
                 <Teaser key={i} article={ article.node } />
               )
             }
+            return null;
           })}
         </Grid>
       </Section>

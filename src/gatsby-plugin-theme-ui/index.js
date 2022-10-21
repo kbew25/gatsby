@@ -162,6 +162,24 @@ const theme = {
       textAlign: 'center'
     }
   },
+  alerts: {
+    info: {
+      color: '#fff',
+      bg: 'primary',
+    },
+    success: {
+      color: '#325E1C',
+      bg: '#CFECC0',
+    },
+    warning: {
+      color: '#734C00',
+      bg: '#FFE1A6',
+    },
+    error: {
+      color: '#a51b00',
+      bg: '#FFDED8',
+    },
+  },
   styles: {
     root: {
       fontFamily: 'body',

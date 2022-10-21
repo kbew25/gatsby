@@ -1,6 +1,5 @@
 import { action } from "@storybook/addon-actions"
 import addons from '@storybook/addons';
-import { DecoratorFn } from '@storybook/react';
 import React, { useEffect } from 'react';
 import "@fontsource/montserrat/400.css"
 import "@fontsource/montserrat/300.css"
@@ -26,6 +25,16 @@ window.___navigate = pathname => {
 }
 
 const channel = addons.getChannel();
+
+export const parameters = {
+  options: {
+    storySort: {
+      method: '',
+      order: ['Base', 'Components'],
+      locales: '',
+    },
+  },
+};
 
 export const globalTypes = {
   theme: {

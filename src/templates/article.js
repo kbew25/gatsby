@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Box, Card, Container, Heading } from "theme-ui";
+import { Box, Container, Heading } from "theme-ui";
 import Layout from "../components/Layout";
 
 export const query = graphql`

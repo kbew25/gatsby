@@ -1,0 +1,33 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+import theme from '../gatsby-plugin-theme-ui/index';
+import { Link, Heading, Paragraph, ThemeProvider } from "theme-ui";
+
+<Meta title="Typography" />
+
+export const SampleText = 'Lorem ipsum dolor...';
+
+# Typography
+
+**Fonts:**
+<ul>{Object.entries(theme.fonts).map(([k, v]) => {
+  return (
+    <li key={k} style={{ fontFamily: v}}>{k}: {v}</li>
+  )
+})}</ul>
+
+**Weights:**
+<ul>{Object.entries(theme.fontWeights).map(([k, v]) => {
+  return (
+    <li key={k} style={{ fontWeight: v}}>{k}: {Number(v)}</li>
+  )
+})}</ul>
+
+**Sizes:**
+<Typeset
+  fontSizes={
+    Object.entries(theme.fontSizes).map(([k, v]) => (Number(v)))
+  }
+  fontWeight={theme.fontWeights.body}
+  sampleText={theme.fonts.body + ' - ' + theme.fontWeights.body}
+  fontFamily={theme.fonts.body}
+/>

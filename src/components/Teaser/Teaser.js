@@ -3,8 +3,9 @@ import { Link as GatsbyLink } from "gatsby";
 import { GatsbyImage, getImage, Placeholder } from 'gatsby-plugin-image';
 import { Card, Link, Box, Heading, Flex } from "theme-ui";
 import Meta from "../Meta/Meta";
+import Rating from "../Rating/Rating";
 
-const Teaser = ({ article }) => {
+const Teaser = ({ article, ...props }) => {
 
   const image = article.relationships.field_image ? getImage(article.relationships.field_image.relationships.field_media_image.localFile) : null;
   const body = article.body?.processed;
@@ -13,43 +14,25 @@ const Teaser = ({ article }) => {
   return (
     <Card key={article.nid} mb={4} variant={ article } sx={{
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      ...props.sx
     }}>
       <Box>
-        { image ? <GatsbyImage image={image} alt="meh" layout="fixed" width={440} height={240} /> : <Placeholder fallback="https://via.placeholder.com/440x240" /> }
+        { image ? <GatsbyImage image={image} alt="meh" layout="fixed" width={550} height={300} /> : <Placeholder fallback="https://via.placeholder.com/550x300" /> }
 
         {article.field_rating && article.field_type !== 'news' && (
-          <Box sx={{
-            position: 'relative',
-            height: '80px',
+          <Rating rating={article.field_rating} sx={{
             mb: '-25px',
             mr: 3,
             mt: '-55px',
-            textAlign: 'right',
-          }}>
-            <Box as="span" sx={{
-              color: 'primary',
-              position: 'absolute',
-              right: '40px',
-              top: '40px',
-              transform: 'translate(50%, -50%)',
-              zIndex: '2',
-              fontSize: 4,
-            }}>{ article.field_rating }</Box>
-            <svg height="80" width="80">
-              <circle stroke="#fff" stroke-width="2" fill="#fff" r="38" cx="40" cy="40" />
-              <circle stroke="#f26a6e" stroke-width="3" fill="transparent" r="38" cx="40" cy="40" stroke-dasharray={ (80 * 3.14) } stroke-dashoffset={ ((80 * 3.14) - (article.field_rating * 10) / 100 * (80 * 3.14)) || '260px' } style={{
-                transform: 'rotate(-90deg)',
-                transformOrigin: '50% 50%',
-                transition: '1s stroke-dashoffset',
-              }} />
-            </svg>
-          </Box>
+            ml: 'auto',
+            transform: 'scale(0.6)',
+          }} />
         )}
       </Box>
       <Flex p={4} bg="background" sx={{
         flexDirection: 'column',
-        borderBottom: t => `3px solid ${t.colors.background}`,
+        borderBottom: t => `3px solid ${t.colors.muted}`,
         height: '100%',
         '&:hover': {
           borderBottomColor: 'primary',

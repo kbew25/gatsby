@@ -8,6 +8,8 @@
     "@emotion/react": "^11.10.4",
     "@fontsource/montserrat": "^4.5.12",
     "@storybook/addon-a11y": "^6.5.12",
+    "@storybook/addon-storysource": "^6.5.12",
+    "@storybook/theming": "^6.5.12",
     "gatsby": "^4.23.0",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-manifest": "^4.23.0",

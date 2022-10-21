@@ -8,9 +8,9 @@ export default create({
 
   // UI
   appBg: 'white',
-  appContentBg: 'silver',
-  appBorderColor: 'grey',
-  appBorderRadius: 4,
+  appContentBg: 'white',
+  appBorderColor: '#eee',
+  appBorderRadius: 0,
 
   // Typography
   fontBase: '"Open Sans", sans-serif',

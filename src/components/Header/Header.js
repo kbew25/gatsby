@@ -26,7 +26,6 @@ const Header = ({ siteTitle }) => {
     >
       <Button
           onClick={(e) => {
-            e.preventDefault();
             setColorMode(colorMode === 'default' ? 'dark' : 'default')
           }}
           sx={{

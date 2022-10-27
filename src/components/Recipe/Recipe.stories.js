@@ -1,5 +1,6 @@
 import React from "react"
-
+import { within, userEvent, getByRole } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 import Recipe from "./Recipe"
 
 export default {
@@ -9,7 +10,8 @@ export default {
 
 const Template = args => <Recipe {...args} />
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
+
 Default.args = {
   props: {
     name: "Crock Pot Roast",
@@ -56,3 +58,15 @@ Default.args = {
     "originalURL": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208"
   }
 }
+
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const getTask = (name) => canvas.findByRole('button', { name });
+
+  const button = await getTask('false');
+  // Click the pin button
+  await userEvent.click(button);
+
+  const trueButton = canvas.getByRole('button', { name: 'true'});
+  await expect(trueButton).toBeInTheDocument();
+};

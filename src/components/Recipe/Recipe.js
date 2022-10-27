@@ -1,7 +1,8 @@
-import React from "react";
-import { Card, Heading, Box, Image, Grid } from "theme-ui";
+import React, { useState } from "react";
+import { Card, Heading, Box, Image, Grid, Button } from "theme-ui";
 
 const Recipe = ({ props }) => {
+  const [buttonState, setButtonState] = useState('false');
   return (
     <Card mb={4}>
       <Grid gap={4} columns={'2fr 1fr'}>
@@ -32,6 +33,7 @@ const Recipe = ({ props }) => {
             }}
             />
             )}
+            <Button onClick={ (e) => setButtonState('true') }>{buttonState}</Button>
         </Box>
       </Grid>
     </Card>

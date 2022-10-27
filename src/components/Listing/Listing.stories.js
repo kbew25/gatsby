@@ -1,28 +1,25 @@
 import React from "react";
 
-import Teaser from "./Teaser"
+import Listing from "./Listing"
 
 export default {
-  component: Teaser,
-  title: "Components/Teaser",
+  component: Listing,
+  title: "Components/Listing",
   parameters: {
     layout: 'centered',
-    backgrounds: { default: 'dark' },
   },
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: '440px' }}>
+      <div style={{ maxWidth: '920px' }}>
         <Story />
       </div>
     ),
   ],
 }
 
-const Template = args => <Teaser {...args} />
+const Template = args => <Listing {...args} />
 
 export const Default = Template.bind({})
-export const Rating = Template.bind({})
-export const NoBody = Template.bind({})
 
 Default.args = {
   article: {
@@ -35,31 +32,8 @@ Default.args = {
     body: {
       processed: '<p>Hic quas natus voluptas tellus quos dictumst explicabo leo? Unde eros quasi iste mollis. Quisque! Primis! Sem sem mauris ligula magnis quae mauris aperiam eveniet viverra platea interdum sodales bibendum, primis erat proin dolorum dictum primis! Magna. Impedit! Reprehenderit libero, commodi quod habitant molestiae deleniti eaque necessitatibus eros laborum quasi.</p>'
     },
-    field_type: 'news',
-    field_rating: null,
+    field_type: 'review',
+    field_rating: '7.5',
     created: 'April 10 2022',
   },
 }
-
-Rating.args = {
-  article: {
-    ...Default.args.article,
-    field_type: 'review',
-    field_rating: '4.6',
-  },
-}
-
-NoBody.args = {
-  article: {
-    ...Default.args.article,
-    body: null,
-  },
-}
-
-Default.parameters = {
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/RSpOZu4bo7aVZXlDlwkGV4/Dorp-Siren?node-id=676%3A679",
-    allowFullscreen: true,
-  },
-};

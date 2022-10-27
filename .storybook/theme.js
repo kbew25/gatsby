@@ -33,6 +33,6 @@ export default create({
 
   brandTitle: 'My custom storybook',
   brandUrl: 'https://example.com',
-  brandImage: 'https://via.placeholder.com/350x150',
+  brandImage: require('../src/images/logo.jpg'),
   brandTarget: '_self',
 });

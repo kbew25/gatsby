@@ -8,6 +8,8 @@ import Seo from "../components/seo";
 import { graphql } from "gatsby";
 import Teaser from "../components/Teaser/Teaser";
 import Section from "../components/Section";
+import HeroCarousel from "../components/HeroCarousel/HeroCarousel";
+import Feature from "../components/Feature/Feature";
 
 export const query = graphql`
   query allArticles {
@@ -32,7 +34,7 @@ export const query = graphql`
                   }
                   localFile {
                     childImageSharp {
-                      gatsbyImageData(width: 550, height: 300)
+                      gatsbyImageData(width: 940, height: 613)
                     }
                   }
                 }
@@ -66,6 +68,10 @@ const IndexPage = ({data}) => {
     return obj.node.field_type === 'review'
   });
 
+  const slides = reviews.slice(0,3);
+
+  console.log(slides);
+
 
   return (
     <Layout>
@@ -75,6 +81,15 @@ const IndexPage = ({data}) => {
           <Lottie animationData={spookyAnimation} />
         </Box>
       </Box>
+      <Section bottom={6}>
+        <Grid gap={2} columns={['2fr 1fr']}>
+          <HeroCarousel slides={slides} />
+          <Box>
+            <Feature article={reviews[3].node} sx={{ mb: 2 }} />
+            <Feature article={reviews[2].node} />
+          </Box>
+        </Grid>
+      </Section>
       <Section title="Latest news" bottom="0" bg="muted">
         <Grid gap={2} columns={[1, 3, 3]}>
           {news.map((article, i) => {

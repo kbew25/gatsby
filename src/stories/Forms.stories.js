@@ -60,8 +60,8 @@ const Template = () => {
           <Radio name="letter" /> Charlie
         </Label>
       </Box>
-      <Label>Slider</Label>
-      <Slider />
+      <Label htmlFor="slider">Slider</Label>
+      <Slider id="slider" />
       <Switch label="Enable email alerts?" />
       <Button>Submit</Button>
     </Box>

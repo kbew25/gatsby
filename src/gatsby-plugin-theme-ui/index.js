@@ -6,10 +6,10 @@ const theme = {
   colors: {
     text: "#404040",
     background: "#fff",
-    primary: "#F78181",
-    secondary: "#9a9a9a",
+    primary: "#a55151",
+    secondary: "#696969",
     muted: "#f7f7f7",
-    gray: '#9a9a9a',
+    gray: '#696969',
     lightGray: "#ccc",
     tertiary: "#0B7A75",
     highlight: "rgba(120, 120, 120, 0.25)",

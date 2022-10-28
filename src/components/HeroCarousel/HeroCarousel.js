@@ -4,7 +4,6 @@ import '@splidejs/react-splide/css';
 import Feature from "../Feature/Feature";
 
 const HeroCarousel = ({ slides }) => {
-  console.log(slides);
   return (
     <Splide aria-label="Carousel of articles"
     options={{
@@ -20,7 +19,7 @@ const HeroCarousel = ({ slides }) => {
           </SplideSlide>
         ))}
       </SplideTrack>
-      <ul class="splide__pagination" style={{
+      <ul className="splide__pagination" style={{
         flexDirection: 'column',
         alignItems: 'flex-end',
         padding: '0 30px',

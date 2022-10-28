@@ -34,7 +34,7 @@ export const query = graphql`
                   }
                   localFile {
                     childImageSharp {
-                      gatsbyImageData(width: 940, height: 613)
+                      gatsbyImageData(width: 940)
                     }
                   }
                 }
@@ -69,9 +69,6 @@ const IndexPage = ({data}) => {
   });
 
   const slides = reviews.slice(0,3);
-
-  console.log(slides);
-
 
   return (
     <Layout>

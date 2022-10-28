@@ -7,9 +7,14 @@ import Rating from "../Rating/Rating";
 
 const Teaser = ({ article, ...props }) => {
 
-  const image = article.relationships.field_image ? getImage(article.relationships.field_image.relationships.field_media_image.localFile) : null;
+  let teaserImage = article.relationships.field_image ? article.relationships.field_image.relationships.field_media_image.localFile : null;
   const body = article.body?.processed;
   const excerpt = body && body.length > 50 ? body.substring(0, 150) + "..." : body;
+
+  if (teaserImage) {
+    teaserImage.childImageSharp.gatsbyImageData.width = 550;
+    teaserImage.childImageSharp.gatsbyImageData.height = 300;
+  }
 
   return (
     <Card key={article.nid} mb={4} variant={ article } sx={{
@@ -18,7 +23,7 @@ const Teaser = ({ article, ...props }) => {
       ...props.sx
     }}>
       <Box>
-        { image ? <GatsbyImage image={image} alt="meh" layout="fixed" width={550} height={300} /> : <Placeholder fallback="https://via.placeholder.com/550x300" /> }
+        { teaserImage ? <GatsbyImage image={getImage(teaserImage)} alt="meh" /> : <Placeholder fallback="https://via.placeholder.com/550x300" /> }
 
         {article.field_rating && article.field_type !== 'news' && (
           <Rating rating={article.field_rating} sx={{

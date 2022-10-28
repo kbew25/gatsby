@@ -6,14 +6,20 @@ import Meta from "../Meta/Meta";
 import SlideCount from "../SlideCount/SlideCount";
 
 const Feature = ({ article, ...props }) => {
-  const image = article.relationships.field_image ? getImage(article.relationships.field_image.relationships.field_media_image.localFile) : null;
+  let image = article.relationships.field_image ? article.relationships.field_image.relationships.field_media_image.localFile : null;
   const sizes = props.large ? {
-    width: '940',
-    height: '613'
+    width: 940,
+    height: 613
   } : {
-    width: '450',
-    height: '290'
+    width: 450,
+    height: 290
   };
+
+
+  if (image) {
+    image.childImageSharp.gatsbyImageData.width = sizes.width;
+    image.childImageSharp.gatsbyImageData.height = sizes.height;
+  }
 
   return (
     <Card variant="feature" key={article.nid} sx={{
@@ -32,7 +38,7 @@ const Feature = ({ article, ...props }) => {
           backgroundColor: 'rgba(64,64,64,0.5)'
         }
       }}>
-        { image ? <GatsbyImage image={image} alt="meh" layout="fixed" width={300} height={180} /> : <Placeholder fallback={`https://via.placeholder.com/${sizes.width}x${sizes.height}`} width={sizes.width} /> }
+        { image ? <GatsbyImage image={getImage(image)} alt="meh" /> : <Placeholder fallback={`https://via.placeholder.com/${sizes.width}x${sizes.height}`} width={sizes.width} /> }
       </Box>
 
       <Flex sx={{
